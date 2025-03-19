@@ -16,7 +16,7 @@ API_URL = "http://localhost:5000/api"
 
 def main():
     st.title("Natural Language to SQL Converter")
-    st.markdown("Enter your query in natural language, and I'll convert it to SQL and return the results.")
+    st.markdown("Enter your query in natural language")
     
     # Natural language query input
     nl_query = st.text_area("Enter your query:", height=100, 
