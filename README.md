@@ -22,12 +22,20 @@ This project converts natural language questions into SQL queries and executes t
 
 ## Documentation & Demo
 
-- [Full Documentation (PDF)](link-to-your-documentation.pdf) - Detailed explanation of architecture, implementation, and usage
-- [Demo Video](link-to-your-video) - Watch the application in action
+- [Full Documentation (PDF)](https://drive.google.com/file/d/1xqZEHIbxeYaFYUYOv99ceoL9l5simQ2z/view?usp=sharing) - Detailed explanation of architecture, implementation, and usage
+- [Demo Video](https://drive.google.com/file/d/1WpKdoN8-zgrAzuewUglQNR3TMBhUNeWr/view?usp=sharing) - Watch the application in action
 
 ## Sample Queries
 
 Try these example queries:
-- "Show me all customers from California"
-- "What's the total revenue by product category?"
-- "List the top 5 salespeople by order volume"
+1. What are the top 5 most selling product?
+2. Provide an overview of the current inventory status, including the count of products in stock for each store.
+3. Calculate the processing time for orders and identify the staff members with slower processing time. 
+4. How many orders were placed at each store?
+5. Compare the sales performance of each store in terms of total revenue and average order value.
+6. How has the total sales revenue changed over the previous quarters?
+7. Identify the top 10 customers who have made the most purchases.
+8. For each product category, identify the top-selling product based on total sales.
+
+
+## Setting up the database can be fred from database_resources
