@@ -1,0 +1,25 @@
+ Step 1: Create the Database
+First, create a new PostgreSQL database named `bikestores`.
+
+ Step 2: Connect to the Database
+Once the database is created, connect to it.
+
+ Step 3: Create the Database Schema
+Use the SQL script `sqlcreatetables.sql` to create the necessary tables.
+
+ Step 4: Import Data into Tables
+Now, import the data into the tables in the following order to maintain referential integrity:
+
+1. production_categories
+2. production_brands
+3. sales_customers
+4. sales_stores
+5. production_products (References `production_categories`, `production_brands`)
+6. sales_staffs (References `sales_stores`)
+7. sales_orders (References `sales_customers`, `sales_stores`, `sales_staffs`)
+8. sales_order_items (References `sales_orders`, `production_products`)
+9. production_stocks (References `sales_stores`, `production_products`)
+
+To import CSV data for each table, use:
+COPY table_name FROM '/path/to/data.csv' DELIMITER ',' CSV HEADER;
+Replace `table_name` with the actual table name and `/path/to/data.csv` with the correct file path.
