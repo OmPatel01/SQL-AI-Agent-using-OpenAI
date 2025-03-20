@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
-from langchain_community.utilities import SQLDatabase
+# from langchain_openai import ChatOpenAI
+# from langchain_community.utilities import SQLDatabase
 from ..database.connection import DatabaseConnection
 
 # Load environment variables
