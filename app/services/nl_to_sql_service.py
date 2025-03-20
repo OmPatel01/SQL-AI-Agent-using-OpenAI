@@ -95,6 +95,7 @@ class NLToSQLConverter:
             | StrOutputParser()
         )
     
+    # Transforms natural language queries into SQL queries using a language model chain
     def convert_to_sql(self, natural_language_query):
         """
         Convert a natural language query to SQL.

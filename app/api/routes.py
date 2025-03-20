@@ -11,6 +11,7 @@ nl_to_sql_converter = NLToSQLConverter()
 query_service = QueryService()
 langchain_service = LangChainService()  # Add the new service
 
+# API endpoint that converts natural language to SQL using the converter service
 @api_bp.route('/convert', methods=['POST'])
 def convert_nl_to_sql():
     data = request.json
@@ -30,6 +31,7 @@ def convert_nl_to_sql():
         "sql_query": sql_query
     })
 
+# API endpoint that executes a provided SQL query and returns the results
 @api_bp.route('/execute', methods=['POST'])
 def execute_sql():
     data = request.json
@@ -43,6 +45,7 @@ def execute_sql():
     
     return jsonify(result)
 
+# Combination endpoint that converts natural language to SQL and executes it in one step
 @api_bp.route('/query', methods=['POST'])
 def process_natural_language_query():
     data = request.json
@@ -65,8 +68,7 @@ def process_natural_language_query():
     
     return jsonify(result)
 
-# New endpoints for LangChain service
-
+# Uses LangChain's direct query method for simpler natural language database queries
 @api_bp.route('/langchain/direct', methods=['POST'])
 def langchain_direct_query():
     data = request.json
@@ -88,6 +90,7 @@ def langchain_direct_query():
             "message": f"Failed to process query: {str(e)}"
         }), 500
 
+# Uses LangChain's more advanced agent-based approach for complex natural language queries
 @api_bp.route('/langchain/agent', methods=['POST'])
 def langchain_agent_query():
     data = request.json

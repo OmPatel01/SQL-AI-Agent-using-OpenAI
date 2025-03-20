@@ -37,5 +37,19 @@ Try these example queries:
 7. Identify the top 10 customers who have made the most purchases.
 8. For each product category, identify the top-selling product based on total sales.
 
+## Database Setup  
 
-## Setting up the database can be fred from database_resources
+The database schema and sample data are available in the `database_resources` folder.  
+Follow these steps to set up your PostgreSQL database:
+1. Create a database named `bikestores`.  
+2. Execute `sqlcreatetables.sql` to set up the schema.  
+3. Import data in the following order:  
+   - `production_categories.sql`  
+   - `production_brands.sql`  
+   - `sales_customers.sql`  
+   - `sales_stores.sql`  
+   - `production_products.sql`  
+   - `sales_staffs.sql`  
+   - `sales_orders.sql`  
+   - `sales_order_items.sql`  
+   - `production_stocks.sql`  

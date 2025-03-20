@@ -22,6 +22,7 @@ app = Flask(__name__)
 langchain_service = LangchainService()
 nl_to_sql_converter = NLToSQLConverter()
 
+# API endpoint that processes natural language queries using the LangchainService agent
 @app.route('/api/convert_query', methods=['POST'])
 def convert_query():
     try:
@@ -66,6 +67,7 @@ def convert_query():
             "traceback": error_traceback
         }), 500
 
+# API endpoint that transforms natural language into SQL using the NLToSQLConverter
 @app.route('/convert_to_sql', methods=['POST'])
 def convert_to_sql():
     try:
@@ -87,6 +89,7 @@ def convert_to_sql():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+# API endpoint that retrieves and returns all available database tables
 @app.route('/api/get_tables', methods=['GET'])
 def get_tables():
     try:

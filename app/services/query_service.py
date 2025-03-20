@@ -17,6 +17,7 @@ class QueryService:
         # Setup for direct SQL execution
         self.db_uri = os.getenv("DATABASE_URI")  # Make sure this is set in your .env file
     
+    # Processes natural language queries by converting them to SQL and executing them against the database
     def execute_nl_query(self, natural_language_query, nl_to_sql_service=None):
         """
         Execute a natural language query using the provided NL to SQL service.
@@ -66,6 +67,7 @@ class QueryService:
                 "data": None
             }
     
+    # Executes SQL queries and returns the results in a structured format with metadata
     def execute_sql_query(self, sql_query):
         """
         Execute a SQL query and return the results.

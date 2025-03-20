@@ -20,8 +20,8 @@ class DatabaseConnection:
     def __init__(self):
         self.engine = create_engine(DATABASE_URL)
     
+    # Executes a SQL query against the database and returns results as a pandas DataFrame
     def execute_query(self, query):
-        """Execute a SQL query and return the results as a pandas DataFrame"""
         try:
             with self.engine.connect() as connection:
                 result = connection.execute(text(query))
@@ -32,8 +32,9 @@ class DatabaseConnection:
             print(f"Error executing query: {e}")
             return None
     
+
+    # Retrieves column names, data types, and nullable status for a specified table
     def get_table_schema(self, table_name):
-        """Get the schema of a specific table"""
         query = f"""
         SELECT column_name, data_type, is_nullable
         FROM information_schema.columns
@@ -41,8 +42,8 @@ class DatabaseConnection:
         """
         return self.execute_query(query)
     
+    # Returns a list of all table names in the public schema of the database
     def get_all_tables(self):
-        """Get a list of all tables in the database"""
         query = """
         SELECT table_name
         FROM information_schema.tables
@@ -51,8 +52,8 @@ class DatabaseConnection:
         result = self.execute_query(query)
         return result["table_name"].tolist() if result is not None else []
     
+    # Builds a complete database schema dictionary with details for all tables
     def get_database_schema(self):
-        """Get the schema of all tables in the database"""
         tables = self.get_all_tables()
         schema = {}
         

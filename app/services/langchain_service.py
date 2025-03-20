@@ -60,6 +60,7 @@ class LangChainService:
             self.initialized = False
             print(f"Error initializing LangChain components: {e}")
     
+    # Executes natural language queries using LangChain SQL agent with reasoning capabilities
     def query_with_agent(self, natural_language_query):
         """
         Execute a natural language query using the LangChain SQL agent.
@@ -128,6 +129,7 @@ class LangChainService:
                 "data": None
             }
     
+    # Provides a simpler and faster database query method without using the full agent framework
     def direct_database_query(self, natural_language_query):
         """
         A simpler method that directly queries the database without the full agent framework.
