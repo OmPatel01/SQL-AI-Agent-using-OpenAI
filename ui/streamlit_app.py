@@ -11,6 +11,35 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# Add custom CSS
+st.markdown("""
+    <style>
+        /* Target the label text above the text area with the specific class */
+        .st-emotion-cache-wq5ihp p {
+            font-size: 22px !important; /* Adjust size as needed */
+            font-weight: 500 !important;
+            color: #0D47A1 !important; /* Blue color */
+            margin-bottom: 10px !important;
+        }
+        
+        /* Make buttons same height but fit content width */
+        div.stButton > button {
+            height: 3em;
+            border-radius: 8px;
+            padding-left: 2em;
+            padding-right: 2em;
+            min-width: 120px;
+        }
+        
+        /* Execute button styling */
+        .execute-btn button {
+            background-color: #0D47A1;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+    """, unsafe_allow_html=True)
+
 # API endpoint URL
 API_URL = "http://localhost:5000/api"
 
@@ -19,11 +48,16 @@ def main():
     st.markdown("Enter your query in natural language")
     
     # Natural language query input
-    nl_query = st.text_area("Enter your query:", height=100, 
-                           placeholder="Example: Show me all customers from New York.")
+    nl_query = st.text_area("", 
+                           height=100, 
+                           key="nl_query",
+                           placeholder="What are the top 5 most selling product?.")
     
     # Execute button
-    if st.button("Execute Query"):
+    execute_clicked = st.button("Execute Query")
+    
+    # Handle button clicks
+    if execute_clicked:
         if nl_query:
             with st.spinner("Processing your query..."):
                 # Call API to process the query
@@ -48,12 +82,13 @@ def main():
                         st.dataframe(df, use_container_width=True)
                         
                         # Download option
-                        csv = df.to_csv(index=False)
+                        csv = df.to_csv(index=False).encode('utf-8')
                         st.download_button(
                             label="Download results as CSV",
                             data=csv,
                             file_name="query_results.csv",
                             mime="text/csv",
+                            key='download-csv'
                         )
                     else:
                         st.info(result["message"])
