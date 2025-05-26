@@ -23,7 +23,7 @@ This project converts natural language questions into SQL queries and executes t
 ## Documentation & Demo
 
 - [Full Documentation (PDF)](https://drive.google.com/file/d/1xqZEHIbxeYaFYUYOv99ceoL9l5simQ2z/view?usp=sharing) - Detailed explanation of architecture, implementation, and usage
-- [Demo Video](https://drive.google.com/file/d/1WpKdoN8-zgrAzuewUglQNR3TMBhUNeWr/view?usp=sharing) - Watch the application in action
+- [Demo Video](https://drive.google.com/file/d/1LfzDjHmBTkcDkN6xjkhqFl6-irFAI57s/view?usp=sharing) - Watch the application in action
 
 ## Sample Queries
 
